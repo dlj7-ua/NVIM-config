@@ -12,6 +12,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nvim-lua/completion-nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 
+"Copilot
+Plug 'github/copilot.vim'
+
 "Plugins Python
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
