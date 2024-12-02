@@ -28,13 +28,14 @@ let g:lightline#ale#indicator_infos = "\uf129"
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
-"LSP configuracion
-lua << EOF
-require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.html.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.pylsp.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
-EOF
+
+"VIMTEX config
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
+"-- From:
+"https://github.com/lervag/vimtex/blob/master/doc/vimtex.txt#L4671-L413
+set foldexpr=vimtex#fold#level(v:lnum)
+set foldtext=vimtex#fold#text()
 
 "COC configuracion
 "__________________________________________________________________________________

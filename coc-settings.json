@@ -1,3 +1,69 @@
 {
-    "sugest.noselect":true
+  "languageserver": {
+    "python": {
+      "command": "pyright-langserver",
+      "args": ["--stdio"],
+      "filetypes": ["python"],
+      "settings": {
+        "python.pythonPath": "/usr/bin/python3"  // Cambia esta ruta si usas un entorno virtual o una ruta diferente
+      }
+    },
+    "cpp": {
+      "command": "clangd",
+      "args": [],
+      "filetypes": ["cpp", "c", "objc", "objcpp"],
+      "rootPatterns": ["compile_commands.json", ".git/"],
+      "initializationOptions": {
+        "clangdFileStatus": true
+      }
+    },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["typescript", "typescriptreact", "javascript", "javascriptreact"],
+      "settings": {
+        "tsserver.formatOnSave": true
+      }
+    },
+    "latex": {
+      "command": "texlab",
+      "args": [],
+      "filetypes": ["tex", "latex", "bibtex", "plaintex"]
+    },
+    "sql": {
+      "command": "sqls",
+      "args": [],
+      "filetypes": ["sql"],
+      "settings": {
+        "sqls": {
+          "connections": [
+            {
+              "driver": "postgres",
+              "name": "Postgres",
+              "server": "localhost",
+              "port": 5432,
+              "database": "my_database",
+              "user": "my_user",
+              "password": "my_password"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "javascript",
+    "typescript",
+    "cpp",
+    "latex",
+    "sql"
+  ],
+  "coc.globalExtensions": [
+    "coc-pyright",
+    "coc-clangd",
+    "coc-tsserver",
+    "coc-texlab",
+    "coc-sql"
+  ]
 }

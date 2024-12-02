@@ -4,9 +4,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'sainnhe/gruvbox-material'
 Plug 'shinchu/lightline-gruvbox.vim'
 
-"SERVIDOR LENGUAJES
-Plug 'neovim/nvim-lspconfig'
-
 "AUTOCOMPLETADO Y SINTAXIS
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-lua/completion-nvim'
@@ -14,6 +11,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 
 "Copilot
 Plug 'github/copilot.vim'
+
+"Latex
+Plug 'lervag/vimtex'
 
 "Plugins Python
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
