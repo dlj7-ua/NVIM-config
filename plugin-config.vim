@@ -32,6 +32,20 @@ let g:lightline#ale#indicator_ok = "\uf00c"
 "VIMTEX config
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
+" Configuración de latexmk
+let g:vimtex_compiler_latexmk = {
+    \ 'build_dir' : 'build',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-pdf',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 "-- From:
 "https://github.com/lervag/vimtex/blob/master/doc/vimtex.txt#L4671-L413
 set foldexpr=vimtex#fold#level(v:lnum)

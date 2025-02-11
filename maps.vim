@@ -5,6 +5,13 @@ let mapleader=" "
 "nnoremap <Leader>T :TestFile<CR>
 "nnoremap <Leader>TT :TestSuite<CR>
 
+
+" Vimtex
+nmap <leader>ll <plug>(vimtex-compile)  " Compilar el documento
+nmap <leader>lv <plug>(vimtex-view)     " Ver el PDF
+nmap <leader>lc <plug>(vimtex-clean)    " Limpiar archivos auxiliares
+nmap <leader>lt <plug>(vimtex-toc-open) " Abrir la tabla de contenidos
+
 " split resize
 nnoremap <Leader>> 10<C-w>>
 nnoremap <Leader>< 10<C-w><
