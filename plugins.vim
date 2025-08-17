@@ -26,7 +26,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale'
 
 "TREE
-Plug 'scrooloose/nerdtree'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons' " soporte de iconos
 
 "TYPING
 Plug 'jiangmiao/auto-pairs'

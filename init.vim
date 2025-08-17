@@ -46,3 +46,26 @@ endfunction
 
 nmap <leader>t :call HighlightsTabsAndSpace()<CR>
 nmap <leader>tt :set nolist<CR>
+
+" Nvim-tree configuración básica
+lua << EOF
+require("nvim-tree").setup {
+  hijack_netrw = true,
+  view = {
+    width = 30,
+    side = "left"
+  },
+  renderer = {
+    icons = {
+      show = {
+        git = true,
+        folder = true,
+        file = true,
+      }
+    }
+  },
+  filters = {
+    dotfiles = false, -- muestra archivos ocultos
+  }
+}
+EOF
