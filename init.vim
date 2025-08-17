@@ -50,77 +50,14 @@ endfunction
 nmap <leader>t :call HighlightsTabsAndSpace()<CR>
 nmap <leader>tt :set nolist<CR>
 
-" Nvim-tree configuración básica
-lua << EOF
-require("nvim-tree").setup {
-  hijack_netrw = true,
-  view = {
-    width = 30,
-    side = "left"
-  },
-  renderer = {
-    icons = {
-      show = {
-        git = true,
-        folder = true,
-        file = true,
-      }
-    }
-  },
-  filters = {
-    dotfiles = false, -- muestra archivos ocultos
-  }
-}
-EOF
+"Gitsigns configuration
+lua require('plugins.gitsigns')()
 
-lua << EOF
-require('telescope').setup{
-  extensions = {
-    project = {
-      base_dirs = {
-        '~/Documents/Uni',
-      },
-      hidden_files = false, -- Mostrar archivos ocultos
-    }
-  }
-}
-require('telescope').load_extension('project')
-require('telescope').load_extension('media_files')
-EOF
+"Telescope configuration
+lua require('plugins.telescope')()
 
+" Nvim-tree configuration
+lua require('plugins.nvim-tree')()
 
-lua << EOF
-require('gitsigns').setup {
-  signs = {
-    add          = { hl = 'GitGutterAdd',           text = '+' },
-    change       = { hl = 'GitGutterChange',        text = '~' },
-    delete       = { hl = 'GitGutterDelete',        text = '_' },
-    topdelete    = { hl = 'GitGutterDeleteChange',  text = '‾' },
-    changedelete = { hl = 'GitGutterChange',        text = '~' },
-  },
-  on_attach = function(bufnr)
-    local gs = package.loaded.gitsigns
-    local map = function(mode, l, r, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
-    end
-
-    map('n', ']c', function()
-      if vim.wo.diff then return ']c' end
-      vim.schedule(function() gs.next_hunk() end)
-      return '<Ignore>'
-    end, { expr = true })
-
-    map('n', '[c', function()
-      if vim.wo.diff then return '[c' end
-      vim.schedule(function() gs.prev_hunk() end)
-      return '<Ignore>'
-    end, { expr = true })
-
-    map('n', '<leader>hs', gs.stage_hunk)
-    map('n', '<leader>hr', gs.reset_hunk)
-    map('n', '<leader>hp', gs.preview_hunk)
-  end
-}
-
+" Avante configuration
+lua require('plugins.avante')()

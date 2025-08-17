@@ -12,6 +12,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 "Copilot
 Plug 'github/copilot.vim'
 
+"Avante + dependencies
+Plug 'nvim-lua/plenary.nvim' " Dependency for Avante and Telescope
+Plug 'MunifTanjim/nui.nvim' " Dependency for Avante
+Plug 'stevearc/dressing.nvim' " Dependency for Avante
+Plug 'nvim-tree/nvim-web-devicons' " Dependency for Avante
+Plug 'yetone/avante.nvim', { 'do': 'make' }
+
 "Latex
 Plug 'lervag/vimtex'
 
@@ -30,7 +37,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons' " soporte de iconos
 
 "SEARCH
-Plug 'nvim-lua/plenary.nvim'
+"Delete coment if Avante is deleted Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'do': ':UpdateRemotePlugins' } "Plugin de búsqueda
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } "FZF para Telescope
 Plug 'nvim-telescope/telescope-file-browser.nvim' " Navegación de archivos

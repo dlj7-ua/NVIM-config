@@ -23,6 +23,10 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
 
+" Avante
+nnoremap <leader>at :AvanteToggle<CR>
+nnoremap <leader>ae :AvanteEdit<CR>
+
 "  nvimtree
 nnoremap <leader>nt :NvimTreeToggle<CR>
 nnoremap <leader>f :NvimTreeFindFile<CR>
