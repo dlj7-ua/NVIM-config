@@ -69,3 +69,41 @@ require("nvim-tree").setup {
   }
 }
 EOF
+
+lua << EOF
+require('gitsigns').setup {
+  signs = {
+    add          = {hl = 'GitGutterAdd'   , text = '+'},
+    change       = {hl = 'GitGutterChange', text = '~'},
+    delete       = {hl = 'GitGutterDelete', text = '_'},
+    topdelete    = {hl = 'GitGutterDeleteChange', text = '‾'},
+    changedelete = {hl = 'GitGutterChange', text = '~'},
+  },
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+    local map = function(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navegación entre cambios (igual que gitgutter)
+    map('n', ']c', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map('n', '[c', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    -- Acciones típicas
+    map('n', '<leader>hs', gs.stage_hunk)
+    map('n', '<leader>hr', gs.reset_hunk)
+    map('n', '<leader>hp', gs.preview_hunk)
+  end
+}
+EOF

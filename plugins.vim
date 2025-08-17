@@ -53,7 +53,6 @@ Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
 
 "GIT
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
+Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
 
