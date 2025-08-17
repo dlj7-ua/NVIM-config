@@ -1,4 +1,4 @@
-" Activar resaltado de sintaxis
+ " Activar resaltado de sintaxis
 syntax enable
 set nocompatible
 let &t_ut=''
