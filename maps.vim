@@ -27,6 +27,19 @@ nnoremap <Leader>Q :q!<CR>
 nnoremap <leader>nt :NvimTreeToggle<CR>
 nnoremap <leader>f :NvimTreeFindFile<CR>
 
+" Telescope
+"   Files
+nnoremap <silent> <leader>f :Telescope file_browser<CR>
+nnoremap <silent> <leader>fb :Telescope buffers<CR>
+nnoremap <silent> <leader>fg :Telescope live_grep<CR>
+"  Git
+nnoremap <silent> <leader>gc :Telescope git_commits<CR>
+nnoremap <silent> <leader>gb :Telescope git_branches<CR>
+nnoremap <silent> <leader>gs :Telescope git_status<CR>
+"  Projects
+nnoremap <silent> <leader>p :Telescope project<CR>
+nnoremap <silent> <leader>m :Telescope media_files<CR>
+
 " shorter commands
 cnoreabbrev blame Gblame
 cnoreabbrev diff Gdiff
@@ -34,7 +47,6 @@ cnoreabbrev tree NvimTreeToggle
 cnoreabbrev find NvimTreeFindFile
 
 " plugs
-map <Leader>p :Files<CR>
 map <Leader>ag :Ag<CR>
 
 " tmux navigator

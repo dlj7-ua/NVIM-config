@@ -29,6 +29,14 @@ Plug 'dense-analysis/ale'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons' " soporte de iconos
 
+"SEARCH
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'do': ':UpdateRemotePlugins' } "Plugin de búsqueda
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } "FZF para Telescope
+Plug 'nvim-telescope/telescope-file-browser.nvim' " Navegación de archivos
+Plug 'nvim-telescope/telescope-project.nvim' " Navegación de proyectos
+Plug 'nvim-telescope/telescope-media-files.nvim' " Previsualización de archivos multimedia
+
 "TYPING
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'

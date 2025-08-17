@@ -1,6 +1,7 @@
+" Activar resaltado de sintaxis
 syntax enable
 set nocompatible
-let &t_ut='' 
+let &t_ut=''
 set encoding=utf-8
 set mouse=a
 set showcmd
@@ -14,7 +15,7 @@ set cursorline
 set termguicolors
 set sw=2
 
-"Tabuladores
+" Tabuladores
 set shiftwidth=4
 set tabstop=4
 filetype indent on
@@ -27,11 +28,12 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Cargar configuraciones externas
 so ~/.config/nvim/plugins.vim
 so ~/.config/nvim/plugin-config.vim
 so ~/.config/nvim/maps.vim
 
-"GRUVBOX configuracion
+" Tema Gruvbox
 set background=dark
 let g:gruvbox_material_background='hard'
 colorscheme gruvbox-material
@@ -39,9 +41,10 @@ highlight Normal ctermbg=NONE
 set laststatus=2
 set noshowmode
 
-function HighlightsTabsAndSpace ()
-call feedkeys(":set listchars=eol:¬,tab:\\|_,trail:~,extends:>,precedes:<,space:\\|\<CR>")
-call feedkeys(":set list\<CR>")
+" Función para mostrar caracteres invisibles
+function! HighlightsTabsAndSpace()
+  set listchars=eol:¬,tab:\|_,trail:~,extends:>,precedes:<,space:\|
+  set list
 endfunction
 
 nmap <leader>t :call HighlightsTabsAndSpace()<CR>
@@ -71,13 +74,29 @@ require("nvim-tree").setup {
 EOF
 
 lua << EOF
+require('telescope').setup{
+  extensions = {
+    project = {
+      base_dirs = {
+        '~/Documents/Uni',
+      },
+      hidden_files = false, -- Mostrar archivos ocultos
+    }
+  }
+}
+require('telescope').load_extension('project')
+require('telescope').load_extension('media_files')
+EOF
+
+
+lua << EOF
 require('gitsigns').setup {
   signs = {
-    add          = {hl = 'GitGutterAdd'   , text = '+'},
-    change       = {hl = 'GitGutterChange', text = '~'},
-    delete       = {hl = 'GitGutterDelete', text = '_'},
-    topdelete    = {hl = 'GitGutterDeleteChange', text = '‾'},
-    changedelete = {hl = 'GitGutterChange', text = '~'},
+    add          = { hl = 'GitGutterAdd',           text = '+' },
+    change       = { hl = 'GitGutterChange',        text = '~' },
+    delete       = { hl = 'GitGutterDelete',        text = '_' },
+    topdelete    = { hl = 'GitGutterDeleteChange',  text = '‾' },
+    changedelete = { hl = 'GitGutterChange',        text = '~' },
   },
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
@@ -87,23 +106,21 @@ require('gitsigns').setup {
       vim.keymap.set(mode, l, r, opts)
     end
 
-    -- Navegación entre cambios (igual que gitgutter)
     map('n', ']c', function()
       if vim.wo.diff then return ']c' end
       vim.schedule(function() gs.next_hunk() end)
       return '<Ignore>'
-    end, {expr=true})
+    end, { expr = true })
 
     map('n', '[c', function()
       if vim.wo.diff then return '[c' end
       vim.schedule(function() gs.prev_hunk() end)
       return '<Ignore>'
-    end, {expr=true})
+    end, { expr = true })
 
-    -- Acciones típicas
     map('n', '<leader>hs', gs.stage_hunk)
     map('n', '<leader>hr', gs.reset_hunk)
     map('n', '<leader>hp', gs.preview_hunk)
   end
 }
-EOF
+
