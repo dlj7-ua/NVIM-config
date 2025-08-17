@@ -61,3 +61,6 @@ lua require('plugins.nvim-tree')()
 
 " Avante configuration
 lua require('plugins.avante')()
+
+"Toggleterm configuration
+lua require('plugins.toggleterm')()

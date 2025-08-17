@@ -53,6 +53,9 @@ Plug 'tpope/vim-surround'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 
+"toggleterm
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 "TEST
 Plug 'tyewang/vimux-jest-test'
 Plug 'janko-m/vim-test'

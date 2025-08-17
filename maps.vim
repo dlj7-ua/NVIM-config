@@ -1,11 +1,5 @@
 let mapleader=" "
 
-" testing
-"nnoremap <Leader>t :TestNearest<CR>
-"nnoremap <Leader>T :TestFile<CR>
-"nnoremap <Leader>TT :TestSuite<CR>
-
-
 " Vimtex
 nmap <leader>ll <plug>(vimtex-compile)  " Compilar el documento
 nmap <leader>lv <plug>(vimtex-view)     " Ver el PDF
@@ -53,11 +47,22 @@ cnoreabbrev find NvimTreeFindFile
 " plugs
 map <Leader>ag :Ag<CR>
 
+" testing
+nnoremap <Leader>tn :TestNearest<CR>
+nnoremap <Leader>tf :TestFile<CR>
+nnoremap <leader>ts :TestSuite<CR>
+
 " tmux navigator
 nnoremap <silent> <Leader><C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <Leader><C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <Leader><C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <Leader><C-l> :TmuxNavigateRight<cr>
+
+"vimux-jest-test
+nnoremap <Leader>jn :VimuxJestTestNearest<CR>
+nnoremap <Leader>jf :VimuxJestTestFile<CR>
+nnoremap <Leader>js :VimuxJestTestSuite<CR>
+
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
