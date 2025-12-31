@@ -70,6 +70,9 @@ Plug 'mhinz/vim-signify'
 Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
 
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim',  { 'do': 'cd app && npm install'  }
+
 "GIT
 Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
