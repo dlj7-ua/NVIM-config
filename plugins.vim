@@ -57,7 +57,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
 "TEST
-Plug 'tyewang/vimux-jest-test'
+" Plug 'tyewang/vimux-jest-test'
 Plug 'janko-m/vim-test'
 
 "IDE

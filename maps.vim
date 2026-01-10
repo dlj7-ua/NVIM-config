@@ -68,9 +68,9 @@ nnoremap <leader>sph :split<CR>
 nnoremap <leader>spv :vsplit<CR>
 
 "vimux-jest-test
-nnoremap <Leader>jn :VimuxJestTestNearest<CR>
-nnoremap <Leader>jf :VimuxJestTestFile<CR>
-nnoremap <Leader>js :VimuxJestTestSuite<CR>
+" nnoremap <Leader>jn :VimuxJestTestNearest<CR>
+" nnoremap <Leader>jf :VimuxJestTestFile<CR>
+" nnoremap <Leader>js :VimuxJestTestSuite<CR>
 
 
 " Remap keys for gotos
