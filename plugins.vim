@@ -6,7 +6,7 @@ Plug 'shinchu/lightline-gruvbox.vim'
 
 "AUTOCOMPLETADO Y SINTAXIS
 Plug 'sheerun/vim-polyglot'
-Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/completion-nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 
 "Copilot
@@ -45,7 +45,7 @@ Plug 'nvim-telescope/telescope-project.nvim' " Navegación de proyectos
 Plug 'nvim-telescope/telescope-media-files.nvim' " Previsualización de archivos multimedia
 
 "TYPING
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 
@@ -62,8 +62,8 @@ Plug 'janko-m/vim-test'
 
 "IDE
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 " Plug 'mhinz/vim-signify'

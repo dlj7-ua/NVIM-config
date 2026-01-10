@@ -44,13 +44,14 @@ cnoreabbrev diff Gdiff
 cnoreabbrev tree NvimTreeToggle
 cnoreabbrev find NvimTreeFindFile
 
-" plugs
-map <Leader>ag :Ag<CR>
-
 " testing
 nnoremap <Leader>tn :TestNearest<CR>
 nnoremap <Leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
+
+
+" Snippets - priorizando coc.nvim
+nnoremap <leader>us :UltiSnipsEdit<CR>
 
 " tmux navigator
 " nnoremap <silent> <Leader><C-h> :TmuxNavigateLeft<cr>
