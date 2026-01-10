@@ -23,7 +23,6 @@ Plug 'yetone/avante.nvim', { 'do': 'make' }
 Plug 'lervag/vimtex'
 
 "Plugins Python
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 

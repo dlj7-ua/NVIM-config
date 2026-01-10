@@ -5,7 +5,7 @@
       "args": ["--stdio"],
       "filetypes": ["python"],
       "settings": {
-        "python.pythonPath": "/usr/bin/python3"  // Cambia esta ruta si usas un entorno virtual o una ruta diferente
+        "python.pythonPath": "/usr/bin/python3"
       }
     },
     "cpp": {
@@ -33,37 +33,50 @@
     "sql": {
       "command": "sqls",
       "args": [],
-      "filetypes": ["sql"],
-      "settings": {
-        "sqls": {
-          "connections": [
-            {
-              "driver": "postgres",
-              "name": "Postgres",
-              "server": "localhost",
-              "port": 5432,
-              "database": "my_database",
-              "user": "my_user",
-              "password": "my_password"
-            }
-          ]
+      "filetypes": ["sql"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["bash", "sh", "zsh"],
+      "shell": "/bin/bash",
+      "initializationOptions": {
+        "shellcheck": {
+          "enable": true,
+          "run": "onSave",
+          "executablePath": "shellcheck"
         }
       }
     }
   },
+  "python.linting.enabled": true,
+  "python.linting.ruffEnabled": true,
+  "python.linting.ruffArgs": ["--fix"],
+  "python.formatting.provider": "ruff",
+  "python.formatting.ruffArgs": ["--line-length=100"],
+  "yaml.schemas": {
+    "kubernetes": "*.k8s.yaml"
+  },
+  "docker.linting.enabled": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "javascript",
     "typescript",
     "cpp",
     "latex",
-    "sql"
+    "sql",
+    "bash",
+    "sh"
   ],
   "coc.globalExtensions": [
     "coc-pyright",
     "coc-clangd",
     "coc-tsserver",
     "coc-texlab",
-    "coc-sql"
+    "coc-sql",
+    "coc-yaml",
+    "coc-docker",
+    "coc-json",
+    "coc-git"
   ]
 }
