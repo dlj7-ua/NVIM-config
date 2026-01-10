@@ -23,7 +23,7 @@ nnoremap <leader>ae :AvanteEdit<CR>
 
 "  nvimtree
 nnoremap <leader>nt :NvimTreeToggle<CR>
-nnoremap <leader>f :NvimTreeFindFile<CR>
+nnoremap <leader>nf :NvimTreeFindFile<CR>
 
 " Telescope
 "   Files
