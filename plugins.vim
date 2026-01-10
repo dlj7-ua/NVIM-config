@@ -44,7 +44,7 @@ Plug 'nvim-telescope/telescope-project.nvim' " Navegación de proyectos
 Plug 'nvim-telescope/telescope-media-files.nvim' " Previsualización de archivos multimedia
 
 "TYPING
-" Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 

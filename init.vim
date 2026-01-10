@@ -65,5 +65,8 @@ lua require('plugins.avante')()
 "Toggleterm configuration
 lua require('plugins.toggleterm')()
 
+"Autopairs configuration
+lua require('plugins.autopairs')()
+
 " Ruta a Python 3
 let g:python3_host_prog = '/usr/bin/python3'

@@ -122,7 +122,7 @@ nnoremap <Leader>x :!python %<cr>
 "endif
 
 
-set splitright
+"/set splitright
 function! OpenTerminal()
   " move to right most buffer
   execute "normal \<C-l>"
@@ -158,127 +158,127 @@ function! OpenTerminal()
 endfunction
 nnoremap <C-t> :call OpenTerminal()<CR>
 
-inoremap <expr> <CR> ParensIndent()
+" inoremap <expr> <CR> ParensIndent()
 
-function! ParensIndent()
-  let prev = col('.') - 1
-  let after = col('.')
-  let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
-  let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
-  if (prevChar == '"' && afterChar == '"') ||
-\    (prevChar == "'" && afterChar == "'") ||
-\    (prevChar == "(" && afterChar == ")") ||
-\    (prevChar == "{" && afterChar == "}") ||
-\    (prevChar == "[" && afterChar == "]")
-    return "\<CR>\<ESC>O"
-  endif
+" function! ParensIndent()
+"   let prev = col('.') - 1
+"   let after = col('.')
+"   let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
+"   let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
+"   if (prevChar == '"' && afterChar == '"') ||
+"\    (prevChar == "'" && afterChar == "'") ||
+"\    (prevChar == "(" && afterChar == ")") ||
+"\    (prevChar == "{" && afterChar == "}") ||
+"\    (prevChar == "[" && afterChar == "]")
+"     return "\<CR>\<ESC>O"
+"   endif
   
-  return "\<CR>"
-endfunction
+"   return "\<CR>"
+" endfunction
 
-inoremap <expr> <space> ParensSpacing()
+" inoremap <expr> <space> ParensSpacing()
 
-function! ParensSpacing()
-  let prev = col('.') - 1
-  let after = col('.')
-  let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
-  let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
-  if (prevChar == '"' && afterChar == '"') ||
-\    (prevChar == "'" && afterChar == "'") ||
-\    (prevChar == "(" && afterChar == ")") ||
-\    (prevChar == "{" && afterChar == "}") ||
-\    (prevChar == "[" && afterChar == "]")
-    return "\<space>\<space>\<left>"
-  endif
+" function! ParensSpacing()
+"   let prev = col('.') - 1
+"   let after = col('.')
+"   let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
+"   let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
+"   if (prevChar == '"' && afterChar == '"') ||
+"\    (prevChar == "'" && afterChar == "'") ||
+"\    (prevChar == "(" && afterChar == ")") ||
+"\    (prevChar == "{" && afterChar == "}") ||
+"\    (prevChar == "[" && afterChar == "]")
+"     return "\<space>\<space>\<left>"
+"   endif
   
-  return "\<space>"
-endfunction
+"   return "\<space>"
+" endfunction
 
-inoremap <expr> <BS> ParensRemoveSpacing()
+" inoremap <expr> <BS> ParensRemoveSpacing()
 
-function! ParensRemoveSpacing()
-  let prev = col('.') - 1
-  let after = col('.')
-  let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
-  let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
+" function! ParensRemoveSpacing()
+"   let prev = col('.') - 1
+"   let after = col('.')
+"   let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
+"   let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
 
-  if (prevChar == '"' && afterChar == '"') ||
-\    (prevChar == "'" && afterChar == "'") ||
-\    (prevChar == "(" && afterChar == ")") ||
-\    (prevChar == "{" && afterChar == "}") ||
-\    (prevChar == "[" && afterChar == "]")
-    return "\<bs>\<right>\<bs>"
-  endif
+"   if (prevChar == '"' && afterChar == '"') ||
+"\    (prevChar == "'" && afterChar == "'") ||
+"\    (prevChar == "(" && afterChar == ")") ||
+"\    (prevChar == "{" && afterChar == "}") ||
+"\    (prevChar == "[" && afterChar == "]")
+"     return "\<bs>\<right>\<bs>"
+"   endif
   
-  if (prevChar == ' ' && afterChar == ' ')
-    let prev = col('.') - 2
-    let after = col('.') + 1
-    let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
-    let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
-    if (prevChar == '"' && afterChar == '"') ||
-  \    (prevChar == "'" && afterChar == "'") ||
-  \    (prevChar == "(" && afterChar == ")") ||
-  \    (prevChar == "{" && afterChar == "}") ||
-  \    (prevChar == "[" && afterChar == "]")
-      return "\<bs>\<right>\<bs>"
-    endif
-  endif
+"   if (prevChar == ' ' && afterChar == ' ')
+"     let prev = col('.') - 2
+"     let after = col('.') + 1
+"     let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
+"     let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
+"     if (prevChar == '"' && afterChar == '"') ||
+"  \    (prevChar == "'" && afterChar == "'") ||
+"  \    (prevChar == "(" && afterChar == ")") ||
+"  \    (prevChar == "{" && afterChar == "}") ||
+"  \    (prevChar == "[" && afterChar == "]")
+"      return "\<bs>\<right>\<bs>"
+"    endif
+"  endif
   
-  return "\<bs>"
-endfunction
+"  return "\<bs>"
+" endfunction
 
-inoremap { {}<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap ' ''<left>
-inoremap " ""<left>
+" inoremap { {}<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap ' ''<left>
+" inoremap " ""<left>
 
-let curly = "}"
-inoremap <expr> } CheckNextParens(curly)
+" let curly = "}"
+" inoremap <expr> } CheckNextParens(curly)
 
-let bracket = "]"
-inoremap <expr> ] CheckNextParens(bracket)
+" let bracket = "]"
+" inoremap <expr> ] CheckNextParens(bracket)
 
-let parens = ")"
-inoremap <expr> ) CheckNextParens(parens)
+" let parens = ")"
+" inoremap <expr> ) CheckNextParens(parens)
 
-let quote = "'"
-inoremap <expr> ' CheckNextQuote(quote)
+" let quote = "'"
+" inoremap <expr> ' CheckNextQuote(quote)
 
-let dquote = '"'
-inoremap <expr> " CheckNextQuote(dquote)
+" let dquote = '"'
+" inoremap <expr> " CheckNextQuote(dquote)
 
-let bticks = '`'
-inoremap <expr> ` CheckNextQuote(bticks)
+" let bticks = '`'
+" inoremap <expr> ` CheckNextQuote(bticks)
 
-function CheckNextQuote(c)
-  let after = col('.')
-  let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
+" function CheckNextQuote(c)
+"   let after = col('.')
+"  let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
   
-  if (afterChar == a:c)
-    return "\<right>"
-  endif
-  if (afterChar == ' ' || afterChar == '' || afterChar == ')' || afterChar== '}' || afterChar == ']')
-    return a:c . a:c . "\<left>"
-  endif
-  if (afterChar != a:c)
-    let bticks = '`'
-    let dquote = '"'
-    let quote = "'"
-    if(afterChar == dquote || afterChar == quote || afterChar == bticks)
-      return a:c . a:c . "\<left>"
-    endif
-  endif
-  return a:c
-endfunction
+"   if (afterChar == a:c)
+"     return "\<right>"
+"   endif
+"   if (afterChar == ' ' || afterChar == '' || afterChar == ')' || afterChar== '}' || afterChar == ']')
+"     return a:c . a:c . "\<left>"
+"   endif
+"   if (afterChar != a:c)
+"     let bticks = '`'
+"     let dquote = '"'
+"     let quote = "'"
+"     if(afterChar == dquote || afterChar == quote || afterChar == bticks)
+"       return a:c . a:c . "\<left>"
+"     endif
+"   endif
+"   return a:c
+" endfunction
 
-function CheckNextParens(c)
-  let after = col('.')
-  let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
-  if (afterChar == a:c)
+" function CheckNextParens(c)
+"   let after = col('.')
+"   let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
+"   if (afterChar == a:c)
 
-    return "\<right>"
-  endif
-  return a:c
-endfunction
-
+"     return "\<right>"
+"   endif
+"   return a:c
+" endfunction
+"/
