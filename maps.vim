@@ -102,9 +102,6 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap <Leader>k :m .-2<CR>==
 nnoremap <Leader>j :m .+1<CR>==
 
-" faster scrolling
-nmap <Leader>s <Plug>(easymotion-s2)
-
 " git
 nnoremap <Leader>G :G<cr>
 nnoremap <Leader>gp :Gpush<cr>
