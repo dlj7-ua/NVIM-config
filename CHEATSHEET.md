@@ -40,7 +40,7 @@
 
 **Descripción:** Plugin de búsqueda potente y fuzzy finder integrado con soporte para archivos, git, proyectos y más. Permite navegar rápidamente por archivos y búsquedas.
 
-###Navegación de Archivos
+### Navegación de Archivos
 
 | Mapeo | Función |
 |-------|---------|
