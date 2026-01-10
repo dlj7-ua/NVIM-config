@@ -34,7 +34,6 @@ Plug 'dense-analysis/ale'
 
 "TREE
 Plug 'nvim-tree/nvim-tree.lua'
-Plug 'nvim-tree/nvim-web-devicons' " soporte de iconos
 
 "SEARCH
 "Delete coment if Avante is deleted Plug 'nvim-lua/plenary.nvim'

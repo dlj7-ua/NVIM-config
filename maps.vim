@@ -103,8 +103,6 @@ nnoremap <Leader>k :m .-2<CR>==
 nnoremap <Leader>j :m .+1<CR>==
 
 " faster scrolling
-nnoremap <C-j> 10<C-e>
-nnoremap <C-k> 10<C-y>
 nmap <Leader>s <Plug>(easymotion-s2)
 
 " git
