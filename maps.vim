@@ -29,10 +29,10 @@ nnoremap <leader>nf :NvimTreeFindFile<CR>
 "   Files
 nnoremap <silent> <leader>f :Telescope file_browser<CR>
 nnoremap <silent> <leader>fb :Telescope buffers<CR>
+"  Git 
 nnoremap <silent> <leader>fg :Telescope live_grep<CR>
-"  Git
 nnoremap <silent> <leader>gc :Telescope git_commits<CR>
-nnoremap <silent> <leader>gb :Telescope git_branches<CR>
+nnoremap < silent> <leader>gb :Telescope git_branches<CR>
 nnoremap <silent> <leader>gs :Telescope git_status<CR>
 "  Projects
 nnoremap <silent> <leader>p :Telescope project<CR>
@@ -53,10 +53,18 @@ nnoremap <Leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
 
 " tmux navigator
-nnoremap <silent> <Leader><C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <Leader><C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <Leader><C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <Leader><C-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <Leader><C-h> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <Leader><C-j> :TmuxNavigateDown<cr>
+" nnoremap <silent> <Leader><C-k> :TmuxNavigateUp<cr>
+" nnoremap <silent> <Leader><C-l> :TmuxNavigateRight<cr>
+
+" faster scrolling
+nnoremap <M-j> 10<C-e>
+nnoremap <M-k> 10<C-y>
+
+" Split navegación y creación
+nnoremap <leader>sph :split<CR>
+nnoremap <leader>spv :vsplit<CR>
 
 "vimux-jest-test
 nnoremap <Leader>jn :VimuxJestTestNearest<CR>

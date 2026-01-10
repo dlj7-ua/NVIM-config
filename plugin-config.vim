@@ -281,7 +281,7 @@ let g:kite_supported_languages = ['*']
  "     \ 'coc-tsserver'
   "    \ ]
 " tmux navigator
-let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_no_mappings = 0
 
 " coc
 autocmd FileType scss setl iskeyword+=@-@
