@@ -1,73 +1,22 @@
 {
-  "languageserver": {
-    "python": {
-      "command": "pyright-langserver",
-      "args": ["--stdio"],
-      "filetypes": ["python"],
-      "settings": {
-        "python.pythonPath": "/usr/bin/python3"
-      }
-    },
-    "cpp": {
-      "command": "clangd",
-      "args": [],
-      "filetypes": ["cpp", "c", "objc", "objcpp"],
-      "rootPatterns": ["compile_commands.json", ".git/"],
-      "initializationOptions": {
-        "clangdFileStatus": true
-      }
-    },
-    "typescript": {
-      "command": "typescript-language-server",
-      "args": ["--stdio"],
-      "filetypes": ["typescript", "typescriptreact", "javascript", "javascriptreact"],
-      "settings": {
-        "tsserver.formatOnSave": true
-      }
-    },
-    "latex": {
-      "command": "texlab",
-      "args": [],
-      "filetypes": ["tex", "latex", "bibtex", "plaintex"]
-    },
-    "sql": {
-      "command": "sqls",
-      "args": [],
-      "filetypes": ["sql"]
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["bash", "sh", "zsh"],
-      "shell": "/bin/bash",
-      "initializationOptions": {
-        "shellcheck": {
-          "enable": true,
-          "run": "onSave",
-          "executablePath": "shellcheck"
-        }
-      }
-    }
-  },
-  "python.linting.enabled": true,
-  "python.linting.ruffEnabled": true,
-  "python.linting.ruffArgs": ["--fix"],
-  "python.formatting.provider": "ruff",
-  "python.formatting.ruffArgs": ["--line-length=100"],
-  "yaml.schemas": {
-    "kubernetes": "*.k8s.yaml"
-  },
-  "docker.linting.enabled": true,
+  "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "javascript",
     "typescript",
+    "typescriptreact",
+    "javascriptreact",
     "cpp",
+    "c",
     "latex",
     "sql",
     "bash",
-    "sh"
+    "sh",
+    "zsh",
+    "json",
+    "yaml"
   ],
+
   "coc.globalExtensions": [
     "coc-pyright",
     "coc-clangd",
@@ -77,6 +26,105 @@
     "coc-yaml",
     "coc-docker",
     "coc-json",
-    "coc-git"
-  ]
+    "coc-git",
+    "coc-bash"
+  ],
+
+  "diagnostic.enable": true,
+  "diagnostic.displayByAle": false,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextPrefix": "❯ ",
+  "diagnostic.level": "warning",
+  "diagnostic.signOffset": 9999100,
+  "diagnostic.errorSign": "●",
+  "diagnostic.warningSign": "●",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "➤",
+
+  "suggest.noselect": false,
+  "suggest.disableKind": false,
+  "suggest.disableMenu": false,
+  "suggest.selection": "recentlyUsedByPrefix",
+  "suggest.enablePreview": true,
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "shadow": true
+  },
+
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.mypyEnabled": false,
+  "python.linting.flake8Enabled": false,
+  "python.linting.ruffEnabled": true,
+  "python.linting.ruffArgs": ["--fix"],
+  "python.formatting.provider": "ruff",
+  "python.formatting.ruffArgs": ["--line-length=100"],
+
+  "pyright.disableLanguageServices": false,
+  "pyright.disableOrganizeImports": false,
+  "pyright.typeCheckingMode": "standard",
+
+  "typescript.validate.enable": true,
+  "typescript.showUnused": true,
+  "typescript.showDeprecated": true,
+  "typescript.tsdk": "/usr/lib/node_modules/typescript/lib",
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+
+  "javascript.validate.enable": true,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+
+  "clangd.enabled": true,
+  "clangd.arguments": [
+    "--header-insertion=iwyu",
+    "--clang-tidy",
+    "--clang-tidy-checks=-*,readability-*,performance-*,bugprone-*",
+    "-j=4"
+  ],
+
+  "clangd.path": "clangd",
+  "clangd.disableSnippetCompletion": false,
+
+  "texlab.build.onSave": true,
+  "texlab.build.forwardSearchAfterBuild": true,
+  "texlab.auxDirectory": "build",
+
+  "sql.database": "mysql",
+  "sql.format.indent_size": 2,
+  "sql.format.uppercase": false,
+
+  "yaml.enable": true,
+  "yaml.schemas": {
+    "kubernetes": "*.k8s.yaml",
+    "docker-compose": "*docker-compose*.yaml"
+  },
+  "yaml.format.enable": true,
+  "yaml.format.singleQuote": false,
+
+  "json.enable": true,
+  "json.format.enable": true,
+
+  "docker.enable": true,
+  "docker.linting.enabled": true,
+
+  "bash.enable": true,
+  "bash.linting.enable": true,
+  "bash.useLanguageServer": true,
+  "bash.linting.ignorePatterns": {
+    "SC1091": true
+  },
+
+  "git.command": "git",
+  "git.ignoredRootPaths": [],
+
+  "codeLens.enable": true,
+  "codeLens.subseparator": " ┆ ",
+
+  "semanticTokens.enable": true,
+
+  "hover.autoAppear": true,
+  "hover.previewMaxLine": 12,
+
+  "notification.minLevel": "warning"
 }
