@@ -348,12 +348,12 @@ let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 
 
-\" vim-test configuration
-let test#strategy = 'vimux'  \" Usa Tmux para ejecutar tests
+" vim-test configuration
+let test#strategy = 'vimux'  " Usa Tmux para ejecutar tests
 
-\" Opciones adicionales:
-let test#javascript#jest#executable = 'npm test --'  \" Si usas npm
-let test#javascript#jest#options = '--watch'  \" Ejecutar en modo watch (opcional)
+" Opciones adicionales:
+let test#javascript#jest#executable = 'npm test --'  " Si usas npm
+let test#javascript#jest#options = '--watch'  " Ejecutar en modo watch (opcional)
 
 
 
