@@ -79,12 +79,23 @@
   "clangd.arguments": [
     "--header-insertion=iwyu",
     "--clang-tidy",
-    "--clang-tidy-checks=-*,readability-*,performance-*,bugprone-*",
-    "-j=4"
+    "--clang-tidy-checks=-*,readability-*,performance-*,bugprone-*,modernize-*,cppcoreguidelines-*",
+    "-j=4",
+    "--background-index",
+    "--all-scopes-completion",
+    "--completion-style=detailed",
+    "--pch-storage=disk",
+    "--function-arg-placeholders",
+    "--header-insertion-decorators"
   ],
 
   "clangd.path": "clangd",
   "clangd.disableSnippetCompletion": false,
+  "clangd.inlayHints.enable": true,
+  "clangd.inlayHints.parameterNames": true,
+  "clangd.inlayHints.deducedTypes": true,
+  "clangd.checkUpdates": false,
+  "clangd.semanticHighlighting": true,
 
   "texlab.build.onSave": true,
   "texlab.build.forwardSearchAfterBuild": true,
