@@ -74,5 +74,10 @@ Plug 'iamcco/markdown-preview.nvim',  { 'do': 'cd app && npm install'  }
 
 "GIT
 Plug 'lewis6991/gitsigns.nvim'
+
+"BUILD
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+
 call plug#end()
 

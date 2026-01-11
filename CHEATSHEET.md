@@ -204,6 +204,59 @@
 
 ---
 
+## 🛠️ CMake Build System + Dispatch (C++ Projects)
+
+**Descripción:** Compilación y ejecución de proyectos C++ con múltiples archivos usando CMake. Ejecuta el build y los tests de forma asíncrona mediante vim-dispatch.
+
+| Mapeo | Función |
+|-------|---------|
+| **Espacio + ct** | Compilar + ejecutar suite de tests C++ (CMake + CTest) |
+| **ESpacio + cb** | Solo compilar proyecto (CMake Build) |
+| **Espacio + ctt** | Solo ejecutar tests (ctest) |
+| **Espacio + cc** | Limpiar directorio build (`rm -rf build`) |
+| **Espacio + cq** | Abrir quickfix (ver errores de compilación) |
+| **Espacio + cQ** | Cerrar quickfix |
+
+**Notas:**
+- Require `CMakeLists.txt` en la raíz del proyecto y otro en `tests/`.
+    - `tests/CMakeLists.txt`:
+    ```cmake
+        # Compilar cada test
+        add_executable(test_mi_estructura test_mi_estructura.cpp ../src/mi_estructura.cpp)
+        add_executable(test_operaciones test_operaciones.cpp ../src/mi_estructura.cpp)
+    
+        # Registrar con CTest
+        add_test(NAME TestEstructura COMMAND test_mi_estructura)
+        add_test(NAME TestOperaciones COMMAND test_operaciones)
+    ```
+    - `CMakeLists.txt` raíz:
+    ```cmake
+        cmake_minimum_required(VERSION 3.16)
+        project(ProyectoEstructuras CXX)
+
+        # Para clangd (compile_commands.json)
+        set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+        set(CMAKE_CXX_STANDARD 17)
+        set(CMAKE_CXX_STANDARD_REQUIRED ON)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -g")
+
+        include_directories(${PROJECT_SOURCE_DIR}/src)
+
+        set(SOURCES
+            src/data_structure.cpp
+        )
+
+        add_executable(main
+            src/main.cpp
+            ${SOURCES}
+        )
+
+        enable_testing()
+        add_subdirectory(tests)
+    ```
+---
+
 ## 📂 División y Gestión de Ventanas
 
 | Mapeo | Función |
