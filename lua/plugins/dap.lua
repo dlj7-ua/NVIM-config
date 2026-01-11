@@ -108,4 +108,7 @@ return function()
     dap.configurations.c = dap.configurations.cpp
     dap.configurations.objc = dap.configurations.cpp
     dap.configurations.objcpp = dap.configurations.cpp
+
+    -- Integración con Telescope para búsqueda avanzada
+    require('telescope').load_extension('dap')
 end
