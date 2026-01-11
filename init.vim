@@ -71,6 +71,12 @@ lua require('plugins.autopairs')()
 "Leap configuration
 lua require('plugins.leap')()
 
+"Mason configuration
+lua require('plugins.mason')()
+
+"DAP configuration
+lua require('plugins.dap')()
+
 " Ruta a Python 3
 let g:python3_host_prog = '/usr/bin/python3'
 

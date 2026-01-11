@@ -49,6 +49,17 @@ nnoremap <Leader>tn :TestNearest<CR>
 nnoremap <Leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
 
+" DAP (Debugger)
+" ===============
+nnoremap <leader>db :DapToggleBreakpoint<CR>
+nnoremap <leader>dc :DapContinue<CR>
+nnoremap <leader>dn :DapStepOver<CR>
+nnoremap <leader>di :DapStepInto<CR>
+nnoremap <leader>do :DapStepOut<CR>
+nnoremap <leader>dt :DapTerminate<CR>
+nnoremap <leader>dr :DapToggleRepl<CR>
+nnoremap <leader>du :lua require('dapui').toggle()<CR>
+nnoremap <leader>de :lua require('dapui').eval()<CR>
 
 " Snippets - priorizando coc.nvim
 nnoremap <leader>us :UltiSnipsEdit<CR>

@@ -204,6 +204,24 @@
 
 ---
 
+## 🐛 Debugging con DAP (Debug Adapter Protocol)
+
+**Descripción:** Integración de debugging visual directamente en NeoVim. Permite inspeccionar variables, punteros, memoria dinámica y paso a paso en código C++.
+
+| Mapeo | Función |
+|-------|---------|
+| **Espacio + db** | Alternar breakpoint en línea actual |
+| **Espacio + dc** | Continuar ejecución (Continue) |
+| **Espacio + dn** | Siguiente línea (Step Over) |
+| **Espacio + di** | Entrar en función (Step Into) |
+| **Espacio + do** | Salir de función (Step Out) |
+| **Espacio + dt** | Terminar debugging |
+| **Espacio + dr** | Abrir/Cerrar REPL de debugging |
+| **Espacio + du** | Alternar interfaz DAP |
+| **Espacio + de** | Evaluar expresión bajo cursor |
+
+---
+
 ## 🛠️ CMake Build System + Dispatch (C++ Projects)
 
 **Descripción:** Compilación y ejecución de proyectos C++ con múltiples archivos usando CMake. Ejecuta el build y los tests de forma asíncrona mediante vim-dispatch.

@@ -6,6 +6,7 @@ Plug 'shinchu/lightline-gruvbox.vim'
 
 "AUTOCOMPLETADO Y SINTAXIS
 Plug 'sheerun/vim-polyglot'
+
 " Plug 'nvim-lua/completion-nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 
@@ -50,6 +51,13 @@ Plug 'tpope/vim-surround'
 "TMUX
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
+
+" DAP (Debugger)
+Plug 'williamboman/mason.nvim'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-neotest/nvim-nio'
+Plug 'jay-babu/mason-nvim-dap.nvim'
 
 "toggleterm
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
