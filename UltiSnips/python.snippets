@@ -1,0 +1,239 @@
+# ===========================================
+# SNIPPETS PARA CIBERSEGURIDAD Y PROTOCOLOS
+# ===========================================
+
+snippet sock "TCP Server Socket" b
+import socket
+
+def create_server(host='0.0.0.0', port=${1:8000}):
+    """Crea servidor TCP en el puerto especificado"""
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    server.bind((host, port))
+    server.listen(5)
+    print(f"[*] Servidor escuchando en {host}:{port}")
+    return server
+
+def handle_client(client_socket, address):
+    """Maneja conexión de cliente"""
+    print(f"[+] Conexión desde {address}")
+    try:
+        data = client_socket.recv(4096)
+        print(f"[>] Recibido: {data.decode('utf-8', errors='ignore')}")
+        # TODO: Procesar datos
+        response = b"HTTP/1.1 200 OK\r\n\r\nHello World"
+        client_socket.send(response)
+    finally:
+        client_socket.close()
+
+if __name__ == '__main__':
+    server = create_server()
+    try:
+        while True:
+            client, addr = server.accept()
+            handle_client(client, addr)
+    except KeyboardInterrupt:
+        print("\n[!] Servidor detenido")
+    finally:
+        server.close()
+$0
+endsnippet
+
+snippet mqtt "MQTT Client" b
+import paho.mqtt.client as mqtt
+import json
+
+def on_connect(client, userdata, flags, rc):
+    """Callback cuando se conecta al broker"""
+    if rc == 0:
+        print("[*] Conectado al broker MQTT")
+        client.subscribe("${1:test/topic}")
+        print(f"[*] Suscrito a: ${1:test/topic}")
+    else:
+        print(f"[!] Error de conexión: {rc}")
+
+def on_message(client, userdata, msg):
+    """Callback cuando llega un mensaje"""
+    print(f"\n[+] Mensaje recibido:")
+    print(f"    Topic: {msg.topic}")
+    print(f"    Payload: {msg.payload.decode()}")
+    
+    try:
+        data = json.loads(msg.payload.decode())
+        print(f"    JSON: {data}")
+    except:
+        print(f"    Raw: {msg.payload}")
+
+def on_disconnect(client, userdata, rc):
+    """Callback cuando se desconecta"""
+    print(f"[!] Desconectado del broker (rc: {rc})")
+
+if __name__ == '__main__':
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.on_disconnect = on_disconnect
+    
+    try:
+        client.connect("${2:localhost}", 1883, 60)
+        client.loop_forever()
+    except KeyboardInterrupt:
+        print("\n[!] Cliente MQTT detenido")
+        client.disconnect()
+$0
+endsnippet
+
+snippet http "HTTP Response Builder" b
+class HTTPResponse:
+    """Constructor de respuestas HTTP"""
+    
+    STATUS_CODES = {
+        200: 'OK',
+        201: 'Created',
+        400: 'Bad Request',
+        401: 'Unauthorized',
+        403: 'Forbidden',
+        404: 'Not Found',
+        500: 'Internal Server Error',
+    }
+    
+    def __init__(self, status=200, headers=None, body=''):
+        self.status = status
+        self.headers = headers or {'Content-Type': 'text/html; charset=utf-8'}
+        self.body = body
+    
+    def add_header(self, key, value):
+        """Agrega un header a la respuesta"""
+        self.headers[key] = value
+        return self
+    
+    def to_bytes(self):
+        """Convierte la respuesta a bytes"""
+        status_text = self.STATUS_CODES.get(self.status, 'Unknown')
+        response = f"HTTP/1.1 {self.status} {status_text}\r\n"
+        
+        for key, val in self.headers.items():
+            response += f"{key}: {val}\r\n"
+        
+        response += f"\r\n{self.body}"
+        return response.encode('utf-8')
+    
+    def __str__(self):
+        return self.to_bytes().decode('utf-8')
+
+# Ejemplo de uso:
+if __name__ == '__main__':
+    response = HTTPResponse(
+        status=200,
+        body='<h1>Hola desde Python</h1>'
+    )
+    response.add_header('Server', 'Python/3.x')
+    print(response)
+$0
+endsnippet
+
+snippet crypt "Cryptography - Fernet Encryption" b
+from cryptography.fernet import Fernet
+import base64
+
+def generate_key():
+    """Genera una clave de encriptación"""
+    return Fernet.generate_key()
+
+def encrypt_data(data, key):
+    """Encripta datos con Fernet"""
+    cipher = Fernet(key)
+    if isinstance(data, str):
+        data = data.encode('utf-8')
+    encrypted = cipher.encrypt(data)
+    return encrypted
+
+def decrypt_data(encrypted_data, key):
+    """Desencripta datos con Fernet"""
+    cipher = Fernet(key)
+    decrypted = cipher.decrypt(encrypted_data)
+    return decrypted.decode('utf-8')
+
+if __name__ == '__main__':
+    # Generar clave (¡Guárdala de forma segura!)
+    key = generate_key()
+    print(f"[*] Clave generada: {key.decode()}")
+    
+    # Encriptar
+    mensaje = "${1:Mensaje secreto}"
+    encrypted = encrypt_data(mensaje, key)
+    print(f"[+] Encriptado: {encrypted}")
+    
+    # Desencriptar
+    decrypted = decrypt_data(encrypted, key)
+    print(f"[+] Desencriptado: {decrypted}")
+$0
+endsnippet
+
+snippet request "HTTP Request Client" b
+import requests
+from requests.exceptions import RequestException
+
+def make_request(url, method='GET', headers=None, data=None, timeout=5):
+    """Realiza una petición HTTP"""
+    try:
+        response = requests.request(
+            method=method,
+            url=url,
+            headers=headers,
+            json=data,
+            timeout=timeout
+        )
+        
+        print(f"[*] {method} {url}")
+        print(f"[+] Status: {response.status_code}")
+        print(f"[+] Headers: {dict(response.headers)}")
+        
+        try:
+            print(f"[+] JSON Response: {response.json()}")
+        except:
+            print(f"[+] Response: {response.text[:200]}")
+        
+        return response
+        
+    except RequestException as e:
+        print(f"[!] Error: {e}")
+        return None
+
+if __name__ == '__main__':
+    # GET request
+    response = make_request('${1:http://localhost:8000/api/endpoint}')
+    
+    # POST request con datos
+    # data = {'key': 'value'}
+    # response = make_request('$1', method='POST', data=data)
+$0
+endsnippet
+
+snippet hexdump "Hexdump utility" b
+def hexdump(data, width=16):
+    """Muestra datos en formato hexadecimal"""
+    if isinstance(data, str):
+        data = data.encode('utf-8')
+    
+    for i in range(0, len(data), width):
+        chunk = data[i:i+width]
+        
+        # Offset
+        hex_offset = f"{i:08x}"
+        
+        # Bytes en hex
+        hex_bytes = ' '.join(f"{b:02x}" for b in chunk)
+        hex_bytes = hex_bytes.ljust(width * 3)
+        
+        # ASCII representation
+        ascii_repr = ''.join(chr(b) if 32 <= b < 127 else '.' for b in chunk)
+        
+        print(f"{hex_offset}  {hex_bytes}  |{ascii_repr}|")
+
+# Ejemplo:
+if __name__ == '__main__':
+    data = b"${1:Hello World from Python}"
+    hexdump(data)
+$0
+endsnippet

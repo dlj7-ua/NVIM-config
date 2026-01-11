@@ -349,7 +349,10 @@ let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 
 " vim-test configuration
-let test#strategy = 'vimux'  " Usa Tmux para ejecutar tests
+let test#strategy = 'toggleterm'
+let test#python#pytest#executable = 'pytest'
+let test#python#pytest#options = '-v --tb=short --no-header --color=yes'
+let test#python#runner = 'pytest'
 
 " Opciones adicionales:
 let test#javascript#jest#executable = 'npm test --'  " Si usas npm
