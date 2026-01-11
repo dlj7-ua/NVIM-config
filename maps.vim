@@ -55,6 +55,9 @@ cnoreabbrev find NvimTreeFindFile
 nnoremap <Leader>tn :TestNearest<CR>
 nnoremap <Leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
+nnoremap <leader>tc :!pytest --cov=. --cov-report=term-missing<CR>
+nnoremap <leader>tw :!pytest -vv --tb=short --lf<CR>
+nnoremap <leader>tx :!pytest -x<CR>
 
 " DAP (Debugger)
 " ===============
@@ -73,6 +76,13 @@ nnoremap <leader>dbb :Telescope dap list_breakpoints<CR>
 
 " Snippets - priorizando coc.nvim
 nnoremap <leader>us :UltiSnipsEdit<CR>
+
+" Security Analysis
+nnoremap <leader>sb :!bandit -r . -f txt --skip B101<CR>
+nnoremap <leader>ss :!safety check --json \| jq '.'<CR>
+nnoremap <leader>sm :!semgrep --config=p/security-audit . --json<CR>
+nnoremap <leader>sr :!ruff check . --select=S --output-format=concise<CR>
+nnoremap <leader>sq :copen<CR>
 
 " tmux navigator
 " nnoremap <silent> <Leader><C-h> :TmuxNavigateLeft<cr>
