@@ -118,6 +118,44 @@ nnoremap <Leader>x :!python %<cr>
   inoremap <silent><expr> <c-space> coc#refresh()
 "endif
 
+" CMake Build and Test Suite (vim-dispatch)
+" =========================================
+
+nnoremap <Leader>ct :call CMakeBuildAndTest()<CR>
+nnoremap <Leader>cb :call CMakeBuildOnly()<CR>
+nnoremap <Leader>ctt :call CMakeTestsOnly()<CR>
+nnoremap <Leader>cc :call CMakeClean()<CR>
+nnoremap <Leader>cq :copen<CR>
+nnoremap <Leader>cQ :cclose<CR>
+
+" Funciones auxiliares
+" ====================
+
+function! CMakeBuildAndTest()
+    call CMakePrepare()
+    call CMakeEnsureBuildDir()
+    echo '🔨 Building and running tests asynchronously...'
+    Make
+endfunction
+
+function! CMakeBuildOnly()
+    call CMakePrepare()
+    call CMakeEnsureBuildDir()
+    echo '🔨 Building project...'
+    Dispatch cd build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G "Unix Makefiles" .. && cmake --build .
+endfunction
+
+function! CMakeTestsOnly()
+    echo '🧪 Running tests...'
+    Dispatch cd build && ctest --output-on-failure --verbose
+endfunction
+
+function! CMakeClean()
+    echo '🧹 Cleaning build directory...'
+    Dispatch rm -rf build
+    echo '✓ Cleaned'
+endfunction
+
 
 "/set splitright
 function! OpenTerminal()

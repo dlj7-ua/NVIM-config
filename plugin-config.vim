@@ -354,3 +354,29 @@ let test#strategy = 'vimux'  \" Usa Tmux para ejecutar tests
 \" Opciones adicionales:
 let test#javascript#jest#executable = 'npm test --'  \" Si usas npm
 let test#javascript#jest#options = '--watch'  \" Ejecutar en modo watch (opcional)
+
+
+
+" vim-dispatch + CMake configuration
+"
+" ==================================
+
+" Usar nuestro compiler cmake
+compiler cmake
+
+" Asociar nombre de compiler
+let g:dispatch_compilers = {
+    \ 'cmake': 'cmake'
+    \ }
+
+" Directorio de build por defecto
+let g:cmake_build_dir = 'build'
+
+" Preparar build dir (por si no existe)
+function! CMakePrepare()
+    let build_dir = getcwd() . '/' . g:cmake_build_dir
+    if !isdirectory(build_dir)
+        call mkdir(build_dir, 'p')
+        echo '✓ Build directory created: ' . build_dir
+    endif
+endfunction
