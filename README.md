@@ -287,6 +287,15 @@ Configuración personal de NeoVim
 | **Espacio + du** | Alternar interfaz DAP |
 | **Espacio + de** | Evaluar expresión bajo cursor |
 
+### Python Debugging
+
+**Configuraciones disponibles:**
+- `Launch file`: Ejecuta el archivo actual
+- `Launch with arguments`: Ejecuta con argumentos
+- `Attach to remote`: Conecta con debugy remoto (puerto 5678)
+
+**Nota:** El debugger detecta automáticamente virtualenv en `./venv` o `./.venv`.
+
 ---
 
 ## 🛠️ CMake Build System + Dispatch (C++ Projects)
