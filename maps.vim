@@ -25,6 +25,13 @@ nnoremap <leader>ae :AvanteEdit<CR>
 nnoremap <leader>nt :NvimTreeToggle<CR>
 nnoremap <leader>nf :NvimTreeFindFile<CR>
 
+" CoC Refactoring
+nmap <silent> <leader>rn <Plug>(coc-rename)
+nmap <silent> <leader>rf <Plug>(coc-refactor)
+nmap <silent> <leader>rf <Plug>(coc-refactor-selected)
+nmap <silent> <leader>ra <Plug>(coc-codeaction)
+nmap <silent> <leader>ra <Plug>(coc-codeaction-selected)
+
 " Telescope
 "   Files
 nnoremap <silent> <leader>f :Telescope file_browser<CR>
@@ -60,6 +67,9 @@ nnoremap <leader>dt :DapTerminate<CR>
 nnoremap <leader>dr :DapToggleRepl<CR>
 nnoremap <leader>du :lua require('dapui').toggle()<CR>
 nnoremap <leader>de :lua require('dapui').eval()<CR>
+nnoremap <leader>dv :Telescope dap variables<CR>
+nnoremap <leader>df :Telescope dap frames<CR>
+nnoremap <leader>dbb :Telescope dap list_breakpoints<CR>
 
 " Snippets - priorizando coc.nvim
 nnoremap <leader>us :UltiSnipsEdit<CR>

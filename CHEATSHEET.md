@@ -23,6 +23,46 @@
 
 ---
 
+## 📦 GitSigns (Control de Cambios de Git)
+
+**Descripción:** Integración visual de Git que muestra cambios (diff) en el margen izqierdo del editor. Premite navegación rápida entre cambios y staging de hunks directamente.
+
+### Navegación de Cambios
+
+| Mapeo | Función |
+|-------|---------|
+| **]c** | Ir al siguiente cambio (hunk) |
+| **[c** | Ir al cambio anterior (hunk) |
+
+### Staging y Reset
+
+| Mapeo | Función |
+|-------|---------|
+| **Espacio + hs** | Stage (preparar) el hunk actual |
+| **Espacio + hr** | Reset (descartar) el hunk actual |
+| **Espacio + hS** | Stage (preparar) todo el archivo |
+| **Espacio + hR** | Reset (descartar todo el archivo) |
+
+### Visualización
+
+| Mapeo | Función |
+|-------|---------|
+| **Espacio + hp** | Vista previa del hunk |
+| **Espacio + hb** | Mostrar blame de la línea actual |
+| **Espacio + tb** | Alternar blame en tiempo real |
+| **Espacio + hd** | Ver diff del hunk |
+| **Espacio + hD** | Ver diff con rama anterior |
+
+### Controles Visuales
+
+| Mapeo | Función |
+|-------|---------|
+| **Espacio + ht** | Alternar símbolos git |
+| **Espacio + hl** | Alternar highlight de líneas |
+| **Espacio + hn** | Alternar números con highlight |
+
+---
+
 ## 📝 VimTeX (Compilación y Visualización de LaTeX)
 
 **Descripción:** Plugin para compilación y visualización de documentos LaTeX. Usa `latemk` como compilador y `Zathura` como visor de PDF.
@@ -189,6 +229,31 @@
 - `vim-closetag`: Cierra automáticamente tags HTML/JSX
 - `vim-surround`: Rodea fácilmente selecciones de texto con caracteres
     - **s** (en modo visual): Rodear selección
+
+---
+
+## 💻 Toggleterm (Terminal Integrada)
+
+**Descripción:** Terminal integrada flotante/dividida que se puede alternar rápidamente. Útil para ejecutar comandos sin salir de NeoVim.
+
+| Mapeo | Función |
+|-------|---------|
+| **Ctrl + t** | Abrir/Cerrar terminal horizontal |
+
+**Nota:** La terminal se divide horizontalmente con 20 líneas de altura.
+
+## ⚡ Leap (Navegación Rápida por Caracteres)
+
+**Descripción:** Plugin de movimiento ultra-rápido para saltar a cualquier posición visible en el código usando dos caracteres. Similar a EasyMotion pero más eficiente.
+
+| Mapeo | Función |
+|-------|---------|
+| **s** | Saltar hacia adelante (normal + visual) |
+| **S** | Saltar hacia atrás (normal + visual) |
+| **x** (operador) | Saltar hacia adelante en modo operador |
+| **X** (operador) | Salatar hacia atrás en modo operador |
+
+**Uso:** Presiona `s`, luego escribe dos caracteres destino, y verás las ubicaciones disponibles marcadas. Presiona la letra indicada para saltar.
 
 ---
 
@@ -425,8 +490,15 @@ Integración automática con CoC para diagnósticos.
 
 ### Copilot
 
-- Sugerencias de código basadas en IA mientras escribes.
-- Aceptar con Tab (generalmente).
+**Descripción:**  Sugerencias de código basadas en IA mientras escribes.
+
+| Mapeo | Función |
+|-------|---------|
+| **Ctrl + ]** |Aceptar sugerencia de Copilot |
+| **Alt + ]** | Ver siguiente sugerencia |
+| **Alt + [** | Ver sugerencia anterior |
+
+**Nota:** Los keybinds de Copilot dependen del plugin. Usa `:verbose imap` para verificar conflictos.
 
 ### Markdown Preview
 
