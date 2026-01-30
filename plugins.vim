@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 "TEMAS
 Plug 'sainnhe/gruvbox-material'
@@ -73,7 +73,7 @@ Plug 'editorconfig/editorconfig-vim'
 " Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'easymotion/vim-easymotion' " Reemplazado por el de abajo
-Plug 'ggandor/leap.nvim'
+Plug 'https://codeberg.org/andyg/leap.nvim'
 " Plug 'mhinz/vim-signify'
 Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
