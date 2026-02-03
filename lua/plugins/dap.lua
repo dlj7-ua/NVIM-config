@@ -166,5 +166,5 @@ return function()
     }
 
     -- Integración con Telescope para búsqueda avanzada
-    require('telescope').load_extension('dap')
+    pcall(require('telescope').load_extension,'dap')
 end

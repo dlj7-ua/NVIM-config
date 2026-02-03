@@ -53,14 +53,14 @@ nmap <leader>tt :set nolist<CR>
 "Mason configuration (PRIMERO - necesario para otros plugins)
 lua require('plugins.mason')()
 
+"Telescope configuration
+lua require('plugins.telescope')()
+
 "DAP configuration
 lua require('plugins.dap')()
 
 "Gitsigns configuration
 lua require('plugins.gitsigns')()
-
-"Telescope configuration
-lua require('plugins.telescope')()
 
 " Nvim-tree configuration
 lua require('plugins.nvim-tree')()

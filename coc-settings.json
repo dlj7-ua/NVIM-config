@@ -86,7 +86,8 @@
     "--completion-style=detailed",
     "--pch-storage=disk",
     "--function-arg-placeholders",
-    "--header-insertion-decorators"
+    "--header-insertion-decorators",
+    "--fallback-style=file:~/.config/nvim/formatos/.clang-format"
   ],
 
   "clangd.path": "clangd",

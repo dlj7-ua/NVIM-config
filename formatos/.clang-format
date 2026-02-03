@@ -1,0 +1,38 @@
+---
+BasedOnStyle: LLVM
+# Opción principal - usar número muy grande en lugar de 0
+ColumnLimit: 999999
+
+# Prevenir line breaks en argumentos
+BinPackArguments: true
+BinPackParameters: true
+AlignAfterOpenBracket: Align
+
+# Prevenir line breaks en inicializadores
+PackConstructorInitializers: Never
+BreakConstructorInitializers: AfterColon
+
+# Mantener funciones cortas en una línea
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortBlocksOnASingleLine: Always
+AllowShortCaseLabelsOnASingleLine: true
+
+# Evitar breaks después de tipos de retorno
+AlwaysBreakAfterReturnType: None
+AlwaysBreakAfterDefinitionReturnType: None
+
+# Configuración de espacios (lo que te gusta mantener)
+SpaceAfterCStyleCast: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# Indentación
+IndentWidth: 4
+UseTab: Never
